@@ -1,3 +1,7 @@
+unknown
+  helper
+
+
 インストール
   bowline の読み方
   HTML と Ruby をつなぐ Bowline
@@ -37,6 +41,26 @@
     callback
     model
     うごかない
+  bowline.js
+    invoke(klass, method, *args)
+      invoke a class method
+      Bowline.invoke('MyClass', 'my_method');
+    instanceInvoke(klass, id, method, *args)
+      invoke an instance method
+      Bowline.instanceInvoke('UsersBinder', 1, 'charge!');
+      jQuery helper 関数から呼ばれる
+    windowInvoke(method, *args)
+      Invoke class method on this window's class.
+      Bowline.windowInvoke('close');
+    helper(method, *args)
+      Invoke a method defined in any helper.
+    bind(element, klass, options = {})
+      Bind a element to a Bowline binder. 
+      Bowline.bind('#users', 'UsersBinder');
+    For more documentation, look at the Chain.js library:
+      http://wiki.github.com/raid-ox/chain.js/elementchain
+
+  redmine 連携アプリ
 
 
   紹介動画
@@ -50,6 +74,9 @@
          （帆を）詰め開きにして.
       音声があればいいけど
 
+   豊富にある gem を利用することができる
+
+   jquery で簡単に豊富な表現
     
 
 
