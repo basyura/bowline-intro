@@ -1,9 +1,28 @@
 unknown
   helper
+  
+  http://bowlineapp.com/
+    Bowline is a framework for making cross platform desktop applications 
+    in Ruby, HTML and JavaScript
 
+    Bowline respects MVC, you can design your views in HTML5/CSS3 
+    bind them to your Ruby models. 
+    There's no request/response cycle - any changes in models 
+    automatically get reflected in the view.
 
 インストール
+
+
   bowline の読み方
+    http://dictionary.goo.ne.jp/leaf/ej3/10605/m0u/bowline/
+   [bóulin] → ぼうりん
+   ばうりんって聞こえるけど
+   not ばうらいん
+
+  wxWidgets - a C++ app framework
+  WebKit - the rendering engine behind Safari & Chrome
+  Ruby 1.9.1
+
   HTML と Ruby をつなぐ Bowline
   Ruby バージョン 1.9
   gem
@@ -41,6 +60,35 @@ unknown
     callback
     model
     うごかない
+  Binding models to a Binder
+    You bind models to a Binder using the ‘bind’ method, e.g.:
+    bind Tweet
+  Calling JavaScript methods from a Binder
+    page.alert('hi').call
+  Getting JavaScript attributes from a Binder
+    @page.body.style.backgroundColor.res {|color| }
+  Calling Binder methods from JavaScript
+    There are a couple of ways to do this:
+  Bowline.invoke('BinderName', 'method_name', 'arg1', 'arg2')
+    Or, if you have a HTML element that is bound to a binder, 
+    you can do this:
+    $("#tweets").invoke('method_name', 'arg1', 'arg2', 'arg3')
+    You can pass a function as the last argument, 
+    which will be invoked which the result of the method invocation.
+  Debugging apps 
+    Gemfile
+    gem "ruby-debug19", :require_as => "ruby-debug"
+    To debug the views, right click – and select ‘Inspect Element’. 
+    The Safari WebInspector will appear.
+  Getting started
+    Generate app
+      bowline-gen app app_name
+      cd app_name
+    Bundle app gems
+      You need to do this everytime the Gemfile changes.
+      bowline-bundle
+    Run the application
+      ./script/run
   bowline.js
     invoke(klass, method, *args)
       invoke a class method
@@ -60,25 +108,111 @@ unknown
     For more documentation, look at the Chain.js library:
       http://wiki.github.com/raid-ox/chain.js/elementchain
 
+  library.rb
+      PROJECT_URL  = "http://bowline.s3.amazonaws.com/#{Platform.type}"
+      DESKTOP_URL  = "#{PROJECT_URL}/bowline-desktop.zip"
+      LIBS_URL     = "#{PROJECT_URL}/libs.zip"
+
+      mac -> osx
+      ダウンロード先 → $HOME/.bowline ？
+
   redmine 連携アプリ
 
 
   紹介動画
-    http://vimeo.com/12793105
+    http://vimeo.com/12793105 
+      画像を挟む 30s ぐらいのや
+    GoRuCo 2010 - Alex MacCaw - Bowline: Ruby Desktop Applications
+      GoRuCo とは？
+      The Gotham Ruby Conference (GoRuCo) is a one-day event 
+      that will take place in New York City on May 22nd, 2010
     Alex MacCaw from U.K 好青年
     好きなように呼んでくれ
-  
+    Desktop Application
+      Messanger Client
+      Music Client
+    
+    Bowline
+    CSS3 & HTML
+    Syncro
+
+    C++
+    wxWidgets
+    WebKit
+    Ruby 1.9
+    Cross Platform
+      dosen't work windows yet
+    MVC
+      他のフレームワークとは違う
+      Model updates
+      ↓
+      Binder updates view
+      ↓
+      View updates HTML
+
+    Binding between HTML & Ruby
+
+
+    helper
+      javascript → Ruby → ブラウザ起動
+
+      bowline-bundle
+      script/run
+      initializer でデータを作っておける
+      
+    Bonjour
+
+    javascript に力をいれるか ruby に力をいれるか
+
+    script/build
+      アプリケーションの作成
+
+    bowline-desktop
+      Bowline::Desktop::App.exit
+      Bowline::Desktop::Dialog.message('Do you concur?' , :yes_no => true)
+      Bowline::Desktop::Dock.badge = 5
+      Bowline::Desktop::Host.ip
+      Bowline::Desktop::Misc.open_browser('http://google.com')
+      Bowline::Desktop::Network.on_online{ puts "Online!" }
+      Bowline::Desktop::Path.documents
+      MainWindow.select_file
+    bowline-update
+      update app background automatically
+      download new app , extract and update
+    bowline-js
+      cross framework javascript
+
+    Documentation
+    Windows support
+    Bowline build server
+    bowline-update app engine
+    Gem extensions
+       Taskforce
+    
+    html5 サポート？
+      html5って？
+    hbox, .hbox {
+      display: -webkit-box
+    }
+
+    webkit2 があるらしい
+      api is different
+
     goo
       bowline
       [名]1 もやい結び(bowline knot).2 《海事》はらみ綱.on a bowline《海事》
          （帆を）詰め開きにして.
       音声があればいいけど
 
+
+
    豊富にある gem を利用することができる
 
    jquery で簡単に豊富な表現
     
-
+  bowline で検索するとポケモンのページがひっかかる
+    ruby を入れて検索する
+    
 
 
 
