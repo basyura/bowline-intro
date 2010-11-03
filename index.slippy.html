@@ -3,13 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
         <!-- Slide meta data, remove/edit as you see fit -->
-        <title>Slippy Documentation</title>
-        <meta name="generator" content="Organic" />
-        <meta name="author" content="Jordi Boggiano" />
-        <meta name="company" content="Liip AG" />
-        <meta name="email" content="j.boggiano@seld.be" />
-        <meta name="date" content="2010-05-30" />
-        <meta name="venue" content="The Internets" />
+        <title>Bowline</title>
         <!-- Slippy core file and dependencies -->
         <script type="text/javascript" src="slippy/jquery-1.4.2.min.js"></script>
         <script type="text/javascript" src="slippy/jquery.history.js"></script>
@@ -17,14 +11,17 @@
         <!-- Slippy structural styles -->
         <link type="text/css" rel="stylesheet" href="slippy/slippy-0.9.0.css"/>
         <!-- Slippy theme -->
-        <link type="text/css" rel="stylesheet" href="slippy/slippy-dark.css"/>
+        <link type="text/css" rel="stylesheet" href="slippy/slippy-pure.css"/>
         <!-- Syntax highlighting core file  -->
+        <!--
         <script type="text/javascript" src="slippy/highlighter/shCore.js"></script>
         <!-- Syntax highlighting brushes, remove those you don't need -->
         <script type="text/javascript" src="highlslippy/ighter/shBrushRuby.js"></script>
         <!-- Syntax highlighting styles-->
         <link type="text/css" rel="stylesheet" href="slippy/highlighter/shCore.css"/>
         <link type="text/css" rel="stylesheet" href="slippy/highlighter/shThemeEclipse.css"/>
+        -->
+        <link type="text/css" rel="stylesheet" href="bowline.css"/>
         <!-- Slippy init code -->
         <script type="text/javascript">
             $(function() {
@@ -44,81 +41,361 @@
                 SyntaxHighlighter.all();
             });
         </script>
-        <!-- Custom style for this deck -->
-        <style type="text/css">
-            .slide.nochrome {
-                border: 0;
-                background: 0;
-            }
-        </style>
     </head>
     <body>
-        <div class="slide">
+        <div class="slide t_left">
             <h2>Usage</h2>
-            <ul>
+            <ul class="middle">
                 <li>Navigation: [Left]/[Right] arrows to move, [Space] or [Double Click] to go to next slide</li>
                 <li>Overview: [ESC]/[Del]/[Tab] to view, [Click] to pick one slide</li>
                 <li>Jump: Press [0-9] keys followed by [Enter] to go straight to one slide</li>
             </ul>
+            <br>
+            <div class="t_right small">
+              powered by <a href="http://seld.be/notes/introducing-slippy-html-presentations">Slippy</a>
+            </div>
         </div>
 
+        <div class="slide" align="center">
+          <h1>Bowline</h1>
+          <p class="middle">Quick & Powerful Ruby Desktop Applications</p>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <div class="t_right middle">
+            <p>id:basyura<p>
+          </div>
+        </div>
+        <!-- -->
+        <div class="slide" align="center">
+          <h1>Bowline</h1>
+          <p class="middle">Quick & Powerful Ruby Desktop Applications</p>
+          <img src="bowline-twitter.png" height="70%" >
+        </div>
+        <!-- -->
+        <div class="slide t_left">
+          <h1>読み方が・・・ (´・ω・`)</h1>
+          <p>goo 辞書</p>
+          <p class="bl">
+          bowline [bóulin] → ぼうりん
+          </p>
+          <p>[名]1 もやい結び(bowline knot).2 《海事》はらみ綱.on a bowline《海事》（帆を）詰め開きにして.</p>
+        </div>
+        <!-- -->
+        <div class="slide">
+          <h1>ばうりん</h1>
+          <p>Alex : ばうりん(と聞こえる)</p>
+          <p>好きに呼んでくれと言っている</p>
+        </div>
+        <!-- -->
+        <div class="slide">
+          <h1>ばうりん (｀･ω･´)</h1>
+          <p>"ばうりん" と呼びます</p>
+          <p>正しい読み方を教えて！！</p>
+        </div>
+        <!-- -->
+        <div class="slide">
+          <h1>あらためて Bowline</h1>
+          <p>Quick & Powerful Ruby Desktop Applications の紹介</p>
+          
+          <p class="bl">
+          - GoRuCo 2010 -<br>
+          The Gotham Ruby Conference (GoRuCo) is a one-day event 
+          that will take place in New York City on May 22nd, 2010<br>
+          <a href="http://vimeo.com/12793105">http://vimeo.com/12793105</a>
+          </p>
+          <p>の紹介動画を参考にして(<del>パクって</del>)います</p>
+        </div>
+        <!-- -->
+        <div class="slide" >
+          <h1>Alex MacCaw</h1>
+          <img src="alex.png" width="50%" height="40%"></img>
+          <br>
+          好青年って感じですね
+          <p class="small"><a href="http://alexmaccaw.co.uk/">http://alexmaccaw.co.uk/</a></p>
+          <p class="small"><a href="http://github.com/maccman">http://github.com/maccman</a></p>
+          <p class="small"><a href="http://twitter.com/maccman">http://twitter.com/maccman</a></p>
+        </div>
+        <!-- -->
+        <div class="slide">
+          <h1>３大ポイント</h1>
+            <p>wxWidgets</p>
+           <span class="small">C++ app framework</span>
+           <br>
+          <p>WebKit</p>
+          <span class="small">the rendering engine behind Safari & Chrome</span>
+          <br>
+          <p>Ruby 1.9</p>
+          <span class="small">A dynamic, open source programming language</span>
+        </div>
+        <!-- -->
+        <div class="slide">
+          <h1>さらに夢が広がるポイント</h1>
+          <p>rubygems</p>
+          <span class="small">こまったときのライブラリ群</span>
+          <p>HTML5</p>
+          <span class="small">なんかすげえ</span>
+          <p>jquery</p>
+          <span class="small">凝った UI もらくちん</span>
+          <p>multi-platform</p>
+          <span class="small">mac、ubuntu、windows(そのうち対応...)</span>
+        </div>
+        <!-- -->
         <div class="slide">
           <h1>Bowline</h1>
-          <p>Quick & Powerful Ruby Desktop Applications</p>
-          <p>id:basyura<p>
+            <p>HTML と Ruby をつなぎ</p>
+            <p>マルチプラットフォームで</p>
+            <p>流行りに乗りまくれる！！</p>
         </div>
-
+        <!-- -->
         <div class="slide">
-          <h1>まず、読み方が分からない</h1>
-          <p>http://dictionary.goo.ne.jp/leaf/ej3/10605/m0u/bowline/</p>
-          <p>bowlin [bóulin] → ぼうりん</p>
-
-          <p>Alex → ばうりん</p>
-          <p>って聞こえる</p>
-          <p>「好きなように呼んでくれ」とも</p>
-
-          <p>「ばうりん」と呼びます</p>
-          <p>正しい読み方を知っている方は教えてください (´・ω・`) </p>
+          <h1>乗るぜ！</h1>
+          <p style="font-size:150%">このビッグウエーブに！</p>
+          <br>
+          <img src="bigwave.png">
         </div>
-
         <div class="slide">
-          <h1>あらためて、Bowline</h1>
-          <p>Quick & Powerful Ruby Desktop Applications</p>
-          <p>これは</p>
-          <p>GoRuCo 2010 - Alex MacCaw - Bowline: Ruby Desktop Applications</p>
-          <p>The Gotham Ruby Conference (GoRuCo) is a one-day event 
-          that will take place in New York City on May 22nd, 2010</p>
-          <p>http://vimeo.com/12793105</p>
-          <p>の紹介動画をかなり参考にして(<del>パクって</del>)います</p>
+          <h1>のる・・・ぜ？</h1>
         </div>
-
+        <!-- -->
         <div class="slide">
-          <h1>Alex MacCaw</h1>
-          <img src="alex.png" width="80%" height="70%"></img>
-          <p><a href="http://alexmaccaw.co.uk/">http://alexmaccaw.co.uk/</a></p>
-          <p><a href="http://github.com/maccman">http://github.com/maccman</a></p>
-          <p><a href="http://twitter.com/maccman">http://twitter.com/maccman</a></p>
+          <h1>Ω＼ζﾟ)ﾁｰﾝｯ</h1>
+          <img src="google.png">
         </div>
-
-
+        <!-- -->
         <div class="slide">
-          wxWidgets - a C++ app framework<br>
-          WebKit - the rendering engine behind Safari & Chrome<br>
-          Ruby 1.9<br>
-
-          gem<br>
-          HTML5<br>
-          jquery<br>
-          マルチプラットフォーム<br>
-            <ul>
-              <li>mac</li>
-              <li>ubuntu</li>
-              <li>windows(そのうち対応)</li>
-            </ul>
+          <p class="small">某所で取り上げられてブクマが沢山ついたけど、その後に触ってる人は居なさそう。</p>
+          <p class="small">サンプルの Hello World を動かすまでは簡単。</p>
+          <p class="small">その後の参考となるサンプルアプリ(bowline-twitter)が動かないし、実装の仕方もよく分からないので詰まる。日本語情報は無いと言っていい。</p>
+          <br>
+          <p>no wave</p>
+          <br>
+          <p>でも、きにしない</p>
         </div>
-
+        <!-- -->
         <div class="slide">
-          HTML と Ruby をつなぐ Bowline
+          <h1>構成</h1>
+          <div style="float:left;width:50%">
+            <p>bowline</p>
+            <p>bowline-desktop</p>
+            <p>bowline-js</p>
+            <p>supermodel</p>
+            <p>supermodel-js</p>
+            <p>ymockup</p>
+            <p>nestful</p>
+          </div>
+          <div style="float:right;width:50%">
+            <p>remail</p>
+            <p>syncro</p>
+            <p>roauth</p>
+            <p>rbyte</p>
+            <p>aristo</p>
+            <p>gdata</p>
+            <p>rdiff</p>
+            <p>rice</p>
+            <p>blather</p>
+          </div>
         </div>
+        <!-- -->
+        <div class="slide">
+          <h1>bowline-twitter</h1>
+          <img src="bowline-twitter.png" height="70%" >
+          <br>
+          <a class="small" href="http://github.com/basyura/bowline-twitter">http://github.com/basyura/bowline-twitter</a><br>
+          <span class="small">(original : <a href="http://github.com/maccman/bowline-twitter">http://github.com/maccman/bowline-twitter</a>)</span>
+        </div>
+        <!-- -->
+        <div class="slide">
+          <h1>MBV</h1>
+          <h3>Binding between HTML & Ruby</h3>
+          <br>
+          Model updates
+          <p>↓</p>
+          Binder updates view
+          <p>↓</p>
+          View updates HTML
+        </div>
+        <!-- -->
+        <div class="slide">
+          <h1>install</h1>
+          <br>
+          $ gem install bowline
+        </div>
+        <!-- -->
+        <div class="slide">
+          <h1>generate project</h1>
+          <br>
+          $ bowline-gen app app_name
+          <br>
+          <br>
+          <span class="small">example : $ bowline-gen app hello</span>
+        </div>
+        <!-- -->
+        <div class="slide t_left">
+          <h1>app_root/Gemfile</h1>
+          <br>
+          <p class="t_center">必要な gem を記述</p>
+          <pre class="bl middle" style="line-height:120%;">
+              # Edit this Gemfile 
+              # to bundle your application's dependencies.
+              source 'http://rubygems.org'
+              gem "bowline"
+              gem "tzinfo"
+
+              ## Bundle the gems you use:
+              # gem "bj"
+              # gem "hpricot", "0.6"
+              # gem "sqlite3-ruby", :require_as => "sqlite3"
+          </pre>
+        </div>
+        <!-- -->
+        <div class="slide t_left">
+          <h1>bundle</h1>
+          <br>
+          <p class="t_center">$ bowline-bundle</p>
+          <p class="t_center middle">app_root/vendor/gems に展開</p>
+            <pre class="bl small" style="line-height:100%">
+              Calculating dependencies...
+              Updating source: http://rubygems.org
+              Updating source: http://gems.rubyforge.org
+              Caching: activemodel-3.0.1.gem
+              Caching: activesupport-3.0.1.gem
+              Caching: bowline-0.9.4.gem
+              Caching: bowline-bundler-0.0.4.gem
+              Caching: builder-2.1.2.gem
+              Caching: diff-lcs-1.1.2.gem
+              Caching: extlib-0.9.15.gem
+              Caching: highline-1.6.1.gem
+              Downloading i18n-0.4.2.gem
+              Caching: rubyzip2-2.0.1.gem
+              Caching: supermodel-0.1.4.gem
+              ・・・
+            </pre>
+        </div>
+        <!-- -->
+        <div class="slide">
+          <h1>boot</h1>
+          <br>
+          $ ruby script/run
+          <img src="hello.png">
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>build</h1>
+         <br>
+         <p>$ ruby script/build</p>
+         <br>
+         <p>app_root/build/ にアプリケーション生成</p>
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>binder</h1>
+         <pre class="bl middle t_left">
+         $ bowline-gen tweets
+         Generating with binder generator:
+              [ADDED]  app/binders/hello_binder.rb
+         </pre>
+         <br>
+         <pre class="bl middle t_left">
+         class TweetsBinder < Bowline::Binders::Collection
+           bind Tweet
+           class << self
+             def poll
+               klass.all
+             end
+             def update(status)
+               Bowline::Desktop::App.busy(true)
+               klass.update(status)
+               Bowline::Desktop::App.busy(false)
+             end
+           end
+         end
+         </pre>
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>model</h1>
+         <pre class="bl middle t_left">
+         $ bowline-gen model tweet
+         Generating with model generator:
+              [ADDED]  app/models/tweet.rb
+         </pre>
+         <br>
+         <pre class="bl middle t_left">
+          require "twitter"
+          class Tweet < SuperModel::Base
+            class << self
+              def poll
+                destroy_all
+                timeline.each do |tweet|
+                  create(tweet)
+                end
+              end
+            end
+            ・・・略・・・
+          end
+         </pre>
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>view</h1>
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>bind</h1>
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>invoke</h1>
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>instanceInvoke</h1>
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>windowInvoke</h1>
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>helper</h1>
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>initializer</h1>
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>config</h1>
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>filter</h1>
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>sort</h1>
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>update</h1>
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>chain.js</h1>
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>debug</h1>
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>growl</h1>
+       </div>
     </body>
 </html>

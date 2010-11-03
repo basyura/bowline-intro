@@ -1,0 +1,41 @@
+body {
+  line-height:250%;
+}
+pre {
+  line-height:100%;
+}
+
+.slide.nochrome {
+    border: 0;
+    background: 0;
+}
+.slide {
+  text-align:center;
+  font-size:200%;
+}
+.t_left {
+  text-align:left;
+}
+.t_right {
+  text-align:right;
+}
+.t_center {
+  text-align:center;
+}
+.bl {
+  background-color:white;
+  border:2px solid gray;
+  padding:3px;
+}
+.small {
+  font-size:50% !important;
+}
+.middle{
+  font-size:70% !important;
+}
+.big {
+  font-size:200% !important;
+}
+.red {
+  color:#ff0000 !important;
+}
