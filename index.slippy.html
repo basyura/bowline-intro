@@ -281,7 +281,7 @@
         <div class="slide">
           <h1>boot</h1>
           <br>
-          $ ruby script/run
+          $ ruby script/run<br>
           <img src="hello.png">
        </div>
        <!-- -->
@@ -344,14 +344,59 @@
        <!-- -->
        <div class="slide">
          <h1>view</h1>
+         <pre class="bl middle t_left">
+             &lt;script src="javascripts/jquery.js"      
+                      type="text/javascript" charset="utf-8"&gt;&lt;/script&gt;
+             &lt;script src="javascripts/jquery.chain.js"
+                      type="text/javascript" charset="utf-8"&gt;&lt;/script&gt;
+             &lt;script src="javascripts/json2.js"       
+                      type="text/javascript" charset="utf-8"&gt;&lt;/script&gt;
+             &lt;script src="javascripts/bowline.js"    
+                      type="text/javascript" charset="utf-8"&gt;&lt;/script&gt;
+             &lt;script src="javascripts/application.js" 
+                      type="text/javascript" charset="utf-8"&gt;&lt;/script&gt;
+         </pre>
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>view</h1>
+         <pre class="bl middle t_left">
+           &lt;div id="tweets"&gt;
+            &lt;div class="item"&gt;
+               &lt;img class="profile_image_url"&gt;
+               &lt;span class="formated_text"&gt;&lt;/span&gt;
+             &lt;/div&gt;
+           &lt;/div&gt;
+         </pre>
        </div>
        <!-- -->
        <div class="slide">
          <h1>bind</h1>
+         <pre class="bl middle t_left">
+           $('#tweets').bowlineBind('TweetsBinder');
+         </pre>
        </div>
        <!-- -->
        <div class="slide">
          <h1>invoke</h1>
+         <pre class="bl middle t_left">
+           $('#tweets').invoke(method_name , param , function);
+         </pre>
+         param : {} , [] , ""
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>invoke</h1>
+         <pre class="bl middle t_left">
+           $('#tweets').invoke("sing" , "aaaa" , 
+              function(res){alert(res)});
+
+           $('#tweets').invoke("sing" , ["aaaa" , "bbb" , "cccc"] ,
+              function(res){alert(res)});
+
+           $('#tweets').invoke("sing" , {a:"A" , b:"B" , c:"C"} , 
+              function(res){alert(res.msg + " " + res.name)});
+         </pre>
        </div>
        <!-- -->
        <div class="slide">
