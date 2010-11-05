@@ -347,12 +347,16 @@
          <pre class="bl middle t_left">
              &lt;script src="javascripts/jquery.js"      
                       type="text/javascript" charset="utf-8"&gt;&lt;/script&gt;
+
              &lt;script src="javascripts/jquery.chain.js"
                       type="text/javascript" charset="utf-8"&gt;&lt;/script&gt;
+
              &lt;script src="javascripts/json2.js"       
                       type="text/javascript" charset="utf-8"&gt;&lt;/script&gt;
+
              &lt;script src="javascripts/bowline.js"    
                       type="text/javascript" charset="utf-8"&gt;&lt;/script&gt;
+
              &lt;script src="javascripts/application.js" 
                       type="text/javascript" charset="utf-8"&gt;&lt;/script&gt;
          </pre>
@@ -362,7 +366,7 @@
          <h1>view</h1>
          <pre class="bl middle t_left">
            &lt;div id="tweets"&gt;
-            &lt;div class="item"&gt;
+             &lt;div class="item"&gt;
                &lt;img class="profile_image_url"&gt;
                &lt;span class="formated_text"&gt;&lt;/span&gt;
              &lt;/div&gt;
@@ -396,6 +400,30 @@
 
            $('#tweets').invoke("sing" , {a:"A" , b:"B" , c:"C"} , 
               function(res){alert(res.msg + " " + res.name)});
+         </pre>
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>invoke</h1>
+         <pre class="bl small t_left">
+          class TweetsBinder < Bowline::Binders::Collection
+            bind Tweet
+            class << self
+              def initial
+                klass.all
+              end
+              def sing(param)
+                if param.kind_of? String
+                  callback "success to tweet with string"
+                elsif param.kind_of? Array
+                  callback ["success" , "to" , "tweet" , "with" , "array"]
+                elsif param.kind_of? Hash
+                  ret = {:msg => "success to tweet with hash" , :name => "bowline"}
+                  callback ret
+                end
+              end
+            end
+          end
          </pre>
        </div>
        <!-- -->
