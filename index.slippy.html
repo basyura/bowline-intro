@@ -169,17 +169,18 @@
         </div>
         <!-- -->
         <div class="slide">
-          <p class="small">某所で取り上げられてブクマが沢山ついたけど、その後に触ってる人は居なさそう。</p>
-          <p class="small">サンプルの Hello World を動かすまでは簡単。</p>
-          <p class="small">その後の参考となるサンプルアプリ(bowline-twitter)が動かないし、実装の仕方もよく分からないので詰まる。日本語情報は無いと言っていい。</p>
-          <br>
-          <p>no wave</p>
+          <p class="middle t_left">某所で取り上げられてブクマが沢山ついたけど、その後に触ってる人は居なさそう。</p>
+          <p class="middle t_left">サンプルの Hello World を動かすまでは簡単。</p>
+          <p class="middle t_left">その後の参考となるサンプルアプリ(bowline-twitter)が動かないし、実装の仕方もよく分からないので詰まる。日本語情報が無いのがつらい。</p>
+        </div>
+        <div class="slide">
+          <h1>no wave</h1>
           <br>
           <p>でも、きにしない</p>
         </div>
         <!-- -->
         <div class="slide">
-          <h1>構成</h1>
+          <h1>フォルダ構成</h1>
           <div style="float:left;width:50%">
             <p>bowline</p>
             <p>bowline-desktop</p>
@@ -211,17 +212,6 @@
         </div>
         <!-- -->
         <div class="slide">
-          <h1>MBV</h1>
-          <h3>Binding between HTML & Ruby</h3>
-          <br>
-          Model updates
-          <p>↓</p>
-          Binder updates view
-          <p>↓</p>
-          View updates HTML
-        </div>
-        <!-- -->
-        <div class="slide">
           <h1>install</h1>
           <br>
           $ gem install bowline
@@ -235,22 +225,50 @@
           <br>
           <span class="small">example : $ bowline-gen app hello</span>
         </div>
+       <!-- -->
+       <div class="slide">
+         <h1>構成</h1>
+          <pre class="bl middle t_left" style="line-height:100%;">
+          app_root
+            ├── app
+            │   ├── binders
+            │   ├── helpers
+            │   ├── models
+            │   └── windows
+            ├── build
+            ├── config
+            │   └── initializers
+            ├── db
+            ├── public
+            │   ├── icon.png
+            │   ├── index.html
+            │   ├── javascripts
+            │   └── stylesheets
+            ├── script
+            │   ├── build
+            │   ├── console
+            │   ├── generate
+            │   ├── init
+            │   └── run
+            └── vendor
+          </pre>
+       </div>
         <!-- -->
         <div class="slide t_left">
           <h1>app_root/Gemfile</h1>
           <br>
           <p class="t_center">必要な gem を記述</p>
           <pre class="bl middle" style="line-height:120%;">
-              # Edit this Gemfile 
-              # to bundle your application's dependencies.
-              source 'http://rubygems.org'
-              gem "bowline"
-              gem "tzinfo"
+            # Edit this Gemfile 
+            # to bundle your application's dependencies.
+            source 'http://rubygems.org'
+            gem "bowline"
+            gem "tzinfo"
 
-              ## Bundle the gems you use:
-              # gem "bj"
-              # gem "hpricot", "0.6"
-              # gem "sqlite3-ruby", :require_as => "sqlite3"
+            ## Bundle the gems you use:
+            # gem "bj"
+            # gem "hpricot", "0.6"
+            # gem "sqlite3-ruby", :require_as => "sqlite3"
           </pre>
         </div>
         <!-- -->
@@ -292,13 +310,38 @@
          <br>
          <p>app_root/build/ にアプリケーション生成</p>
        </div>
+        <!-- -->
+        <div class="slide">
+          <h1>MBV</h1>
+          <h3>Binding between HTML & Ruby</h3>
+          <br>
+          Model updates
+          <p>↓</p>
+          Binder updates view
+          <p>↓</p>
+          View updates HTML
+        </div>
+       <!-- -->
+       <div class="slide">
+         <h1>model</h1>
+         <pre class="bl middle t_left">
+         $ bowline-gen model tweet
+         Generating with model generator:
+              [ADDED]  app/models/tweet.rb
+         </pre>
+         <br>
+         <pre class="bl middle t_left">
+          class Tweet < SuperModel::Base
+          end
+         </pre>
+       </div>
        <!-- -->
        <div class="slide">
          <h1>binder</h1>
          <pre class="bl middle t_left">
          $ bowline-gen tweets
          Generating with binder generator:
-              [ADDED]  app/binders/hello_binder.rb
+              [ADDED]  app/binders/tweets_binder.rb
          </pre>
          <br>
          <pre class="bl middle t_left">
@@ -315,30 +358,6 @@
              end
            end
          end
-         </pre>
-       </div>
-       <!-- -->
-       <div class="slide">
-         <h1>model</h1>
-         <pre class="bl middle t_left">
-         $ bowline-gen model tweet
-         Generating with model generator:
-              [ADDED]  app/models/tweet.rb
-         </pre>
-         <br>
-         <pre class="bl middle t_left">
-          require "twitter"
-          class Tweet < SuperModel::Base
-            class << self
-              def poll
-                destroy_all
-                timeline.each do |tweet|
-                  create(tweet)
-                end
-              end
-            end
-            ・・・略・・・
-          end
          </pre>
        </div>
        <!-- -->
@@ -368,14 +387,22 @@
            &lt;div id="tweets"&gt;
              &lt;div class="item"&gt;
                &lt;img class="profile_image_url"&gt;
-               &lt;span class="formated_text"&gt;&lt;/span&gt;
+               &lt;span class="text"&gt;&lt;/span&gt;
              &lt;/div&gt;
            &lt;/div&gt;
+         </pre>
+         <p>↓</p>
+         <p>model</p>
+         <pre class="bl middle t_left">
+           t = Tweet.new
+           t.profile_image_url
+           t.text
          </pre>
        </div>
        <!-- -->
        <div class="slide">
          <h1>bind</h1>
+         <p>model と view を結ぶ</p>
          <pre class="bl middle t_left">
            $('#tweets').bowlineBind('TweetsBinder');
          </pre>
@@ -383,14 +410,16 @@
        <!-- -->
        <div class="slide">
          <h1>invoke</h1>
+         メソッド呼び出し
          <pre class="bl middle t_left">
            $('#tweets').invoke(method_name , param , function);
          </pre>
-         param : {} , [] , ""
+         param : {} , [] , " "
        </div>
        <!-- -->
        <div class="slide">
          <h1>invoke</h1>
+         javascript
          <pre class="bl middle t_left">
            $('#tweets').invoke("sing" , "aaaa" , 
               function(res){alert(res)});
@@ -405,13 +434,12 @@
        <!-- -->
        <div class="slide">
          <h1>invoke</h1>
-         <pre class="bl small t_left">
+         binder
+         <pre class="bl middle t_left">
           class TweetsBinder < Bowline::Binders::Collection
             bind Tweet
             class << self
-              def initial
-                klass.all
-              end
+              ・・・
               def sing(param)
                 if param.kind_of? String
                   callback "success to tweet with string"
@@ -422,53 +450,180 @@
                   callback ret
                 end
               end
+              ・・・
             end
           end
          </pre>
        </div>
        <!-- -->
        <div class="slide">
+         <h1>invoke</h1>
+         Binder を直接指定して呼び出す
+         <pre class="bl middle t_left">
+           Bowline.invoke("TweetsBinder", "sing" , "aaaa" , 
+             function(res){alert(res)});
+
+           Bowline.invoke("TweetsBinder", "sing" , ["aaaa" , "bbb" , "cccc"] ,
+             function(res){alert(res)});
+
+           Bowline.invoke("TweetsBinder", "sing" , {a:"A" , b:"B" , c:"C"} , 
+             function(res){alert(res.msg + " " + res.name)});
+         </pre>
+       </div>
+       <!-- -->
+       <div class="slide">
          <h1>instanceInvoke</h1>
+         instanceInvoke(klass, id, method, *args)
+         <pre class="bl middle t_left">
+           invoke an instance method
+           Bowline.instanceInvoke('TweetsBinder', 1, 'charge!');
+         </pre>
        </div>
        <!-- -->
        <div class="slide">
          <h1>windowInvoke</h1>
+    windowInvoke(method, *args)
+         <pre class="bl middle t_left">
+           Invoke class method on this window's class.
+           Bowline.windowInvoke('close');
+         </pre>
        </div>
        <!-- -->
        <div class="slide">
          <h1>helper</h1>
+         helper(method, *args)
+         <pre class="bl middle t_left">
+           Invoke a method defined in any helper.
+         </pre>
        </div>
        <!-- -->
        <div class="slide">
          <h1>initializer</h1>
+         app_root/config/initializers
+         <pre class="bl middle t_left">
+           Thread.new do  
+             loop do
+               TweetsBinder.poll
+               sleep 30
+             end
+           end
+        </pre>
        </div>
        <!-- -->
        <div class="slide">
-         <h1>config</h1>
+         <h1>config/application.yml</h1>
+         <pre class="bl middle t_left">
+           username: basyura
+           password: xxxxxxx
+         </pre>
+         <p>↓</p>
+         <p>rb から呼び出し</p>
+         <pre class="bl middle t_left">
+           AppConfig.username  //=> basyura
+           AppConfig.password  //=> xxxxxxx
+         </pre>
        </div>
        <!-- -->
        <div class="slide">
          <h1>filter</h1>
+         <pre class="bl middle t_left">
+           $('#tweets').items('filter', 'value');
+         </pre>
        </div>
        <!-- -->
        <div class="slide">
          <h1>sort</h1>
-       </div>
-       <!-- -->
-       <div class="slide">
-         <h1>update</h1>
+         <pre class="bl middle t_left">
+           $('#users').items('sort', 'first_name');
+         </pre>
        </div>
        <!-- -->
        <div class="slide">
          <h1>chain.js</h1>
+         <p class="middle">
+           html template に bind してコンテンツ生成する jQuery plugin
+         </p>
+         <pre class="bl middle t_left">
+           &lt;div id='language'&gt;
+             &lt;div class='item'&gt;
+               &lt;span class='name'&gt;language's name&lt;/span&gt;
+             &lt;/div&gt;
+           &lt;/div&gt;
+         </pre>
+         ↓
+         <pre class="bl middle t_left">
+           $('#language').items([
+               {name : 'javascript'},
+               {name : 'ruby'},
+               {name : 'perl'},
+               {name : 'python'},
+               {name : 'java'}
+             ]).chain();
+         </pre>
+         ↓
+         <pre class="bl middle t_left">
+           javascript ruby perl python java 
+         </pre>
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>chain.js</h1>
+         <p class="middle">先頭に追加 - shift</p>
+         <pre class="bl middle t_left">
+           $('#language').items('merge' , 'shift' , [
+             {name : 'c#'},
+             {name : 'php'}
+           ]);
+         </pre>
+         <p class="middle">置き換え - replace</p>
+         <pre class="bl middle t_left">
+           function replace_lang() {
+             $('#language').items('replace' , [
+                 {name : 'gauche'},
+                 {name : 'lisp'}
+             ]);
+           }
+         </pre>
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>chain.js</h1>
+         <p class="middle">並び替え - sort</p>
+         <pre class="bl middle t_left">
+           function sort_lang() {
+             $('#language').items('sort' , 'name');
+           }
+         </pre>
+         <p class="middle">絞り込み - filter</p>
+         <pre class="bl middle t_left">
+           function filter_lang() {
+             $('#language').items('filter' , 'c' , 'name');
+           }
+         </pre>
+         <p class="middle">削除 - empty</p>
+         <pre class="bl middle t_left">
+           $('#language').items('empty');
+         </pre>
        </div>
        <!-- -->
        <div class="slide">
          <h1>debug</h1>
+         <p>webkit debugger</p>
+         <p>rubydebugger</p>
        </div>
        <!-- -->
        <div class="slide">
          <h1>growl</h1>
+         <pre class="bl middle t_left">
+         gem "ruby-growl"
+         g = Growl.new("localhost", "bowline-growl", 
+                                 ["bowline-growl Notification"])
+         g.notify("bowline-growl Notification", title , message)
+         </pre>
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>その他の事例</h1>
        </div>
     </body>
 </html>
