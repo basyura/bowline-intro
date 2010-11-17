@@ -402,9 +402,48 @@
        <!-- -->
        <div class="slide">
          <h1>bind</h1>
-         <p>model と view を結ぶ</p>
+         <p>HTML 要素と binder を結ぶ</p>
          <pre class="bl middle t_left">
            $('#tweets').bowlineBind('TweetsBinder');
+         </pre>
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>bind</h1>
+         <p>検索</p>
+         klass で model にアクセス → 画面に表示
+         <pre class="bl middle t_left">
+          class TweetsBinder < TweetsBinderBase
+            bind Tweet
+            class << self
+              def poll
+                self.items = klass.all
+              end
+            end
+          end
+         </pre>
+       </div>
+       <!-- -->
+       <div class="slide">
+         <h1>bind</h1>
+         <p>追加</p>
+         Hash から生成 → 画面に追加表示
+         <pre class="bl middle t_left">
+          class TweetsBinder < TweetsBinderBase
+            bind Tweet
+            class << self
+              def create
+                twitter.firiends_timeline.collect {|status|
+                  tweet = status.to_hash
+                  tweet[:profile_image_url] = tweet[:user][:profile_image_url]
+                  tweet[:screen_name]       = tweet[:user][:screen_name]
+                  tweet[:formated_text]     = nil
+                  tweet.delete(:user)
+                  create(tweet)
+                }
+              end
+            end
+          end
          </pre>
        </div>
        <!-- -->
@@ -610,6 +649,7 @@
          <h1>debug</h1>
          <p>webkit debugger</p>
          <p>rubydebugger</p>
+         <img src="webkit_debug.png">
        </div>
        <!-- -->
        <div class="slide">
@@ -623,7 +663,8 @@
        </div>
        <!-- -->
        <div class="slide">
-         <h1>その他の事例</h1>
+         <h1>続きは web で</h1>
+         <p><a href="http://bowlineapp.com">http://bowlineapp.com</a></p>
        </div>
     </body>
 </html>
