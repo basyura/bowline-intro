@@ -432,7 +432,7 @@
           class TweetsBinder < TweetsBinderBase
             bind Tweet
             class << self
-              def create
+              def add
                 twitter.firiends_timeline.collect {|status|
                   tweet = status.to_hash
                   tweet[:profile_image_url] = tweet[:user][:profile_image_url]
@@ -616,12 +616,10 @@
          </pre>
          <p class="middle">置き換え - replace</p>
          <pre class="bl middle t_left">
-           function replace_lang() {
-             $('#language').items('replace' , [
-                 {name : 'gauche'},
-                 {name : 'lisp'}
-             ]);
-           }
+           $('#language').items('replace' , [
+               {name : 'gauche'},
+               {name : 'lisp'}
+           ]);
          </pre>
        </div>
        <!-- -->
@@ -629,15 +627,11 @@
          <h1>chain.js</h1>
          <p class="middle">並び替え - sort</p>
          <pre class="bl middle t_left">
-           function sort_lang() {
-             $('#language').items('sort' , 'name');
-           }
+           $('#language').items('sort' , 'name');
          </pre>
          <p class="middle">絞り込み - filter</p>
          <pre class="bl middle t_left">
-           function filter_lang() {
-             $('#language').items('filter' , 'c' , 'name');
-           }
+           $('#language').items('filter' , 'c' , 'name');
          </pre>
          <p class="middle">削除 - empty</p>
          <pre class="bl middle t_left">
